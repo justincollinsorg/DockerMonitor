@@ -1,0 +1,59 @@
+function livecontainer () {
+     touch /root/illd/live_containers_folder/${1}
+}
+
+function startcontainer () {
+     touch /root/illd/live_containers_folder/${1}
+}
+
+function addcontainer () {
+     touch /root/illd/live_containers_folder/${1}
+}
+
+alias lib.ill='ill.lib'
+alias rmcontainer='stopcontainer'
+alias killcontainer='stopcontainer'
+
+function stopcontainer () {
+     rm /root/illd/live_containers_folder/${1}
+}
+
+function rmcontainer () {
+     rm /root/illd/live_containers_folder/${1}
+}
+
+function listcontainers () {
+     ls /root/illd/live_containers_folder
+}           
+
+alias illds='systemctl status illd.service'
+alias illdlog='cat /root/illd/down.log | less'
+
+function illdctl  () {
+      if [ "$1" == "restart" ]; 
+then
+     systemctl restart illd
+ return 1
+elif  [ "$1" == "status" ];
+then
+systemctl status illd
+ return 1           
+elif  [ "$1" == "start" ];
+then
+systemctl start illd
+ return 1
+elif  [ "$1" == "stop" ];
+then
+systemctl stop illd
+ return 1
+elif  [ "$1" == "logs" ];
+then
+cat /root/illd/down.log | less 
+ return 1
+elif  [ "$1" == "clearlogs" ];
+then
+    echo > /root/illd/down.log
+ return 1           
+           
+fi
+}
