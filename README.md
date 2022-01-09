@@ -1,4 +1,4 @@
-# illd.d
+# Docker Monitor
 Monitors specified docker containers to ensure they are restarted if not running.
 
 
